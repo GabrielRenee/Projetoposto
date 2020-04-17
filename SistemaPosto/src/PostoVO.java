@@ -1,0 +1,181 @@
+
+import javax.swing.*;
+
+
+public class PostoVO {
+    
+    public float[] valorCmp = new float[4]; // 0- etanol; 1- gasolina; 2-aditivada; 3- diesel
+    public float[] valorVend = new float[4];
+    public float[] tanques = new float[4];//0- etanol; 1- gasolina; 2-aditivada; 3- diesel
+    public float[] lVend = new float[5]; //Litros vendidos: 0- etanol; 1- gasolina; 2- aditivada; 3- diesel; 4- total
+    public float[] lCmp = new float[5];//Litros comprados: 0- etanol; 1- gasolina; 2- aditivada; 3- diesel; 4- total
+    public float despesas, lucros;
+    
+    public PostoVO() { //Inicializa os tanques com 0;
+        for (int i = 0; i < 4; i++) {
+            this.tanques[i] = 0;
+        }
+        valorCmp[0] = 1.19f; //Valor de compra etanol;
+        valorCmp[1] = 2.19f; //Valor de compra gasolina;
+        valorCmp[2] = 2.29f; //Valor de compra aditivada;
+        valorCmp[3] = 1.39f; //Valor de compra diesel;
+        
+        valorVend[0] = 2.39f; //Valor de venda etanol;
+        valorVend[1] = 4.19f; //Valor de venda gasolina;
+        valorVend[2] = 4.39f; //Valor de venda aditivada;
+        valorVend[3] = 3.29f; //Valor de venda diesel;
+    }
+    public void abastecerTanque(int tmpComb, int tmpQnt){
+        switch(tmpComb){
+            case 1:
+                if(tanques[0] + tmpQnt <= 20000 && tmpQnt > 0){
+                    this.tanques[0] += tmpQnt;
+                    this.lCmp[0] += tmpQnt;
+                    this.lCmp[4] += tmpQnt;
+                    this.despesas += tmpQnt * valorCmp[0];
+                    JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }else if (this.tanques[0] == 20000 && (tmpQnt > 0)) {
+                    JOptionPane.showMessageDialog(null, "O tanque já está cheio!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                    break;
+                }else if (tmpQnt <= 0) {
+                    JOptionPane.showMessageDialog(null, "Erro, valor negativo !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    break;
+                }else if ((this.tanques[0] + tmpQnt) > 2000) {
+                    JOptionPane.showMessageDialog(null, "A quantidade de combustivel supera a capacidade do tanque!", "Erro", JOptionPane.WARNING_MESSAGE);
+                    break;
+                }
+            case 2:
+                if(tanques[1] + tmpQnt <= 20000 && tmpQnt > 0){
+                    this.tanques[1] += tmpQnt;
+                    this.lCmp[1] += tmpQnt;
+                    this.lCmp[4] += tmpQnt;
+                    this.despesas += tmpQnt * valorCmp[1];
+                    JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }else if (this.tanques[1] == 20000 && (tmpQnt > 0)) {
+                    JOptionPane.showMessageDialog(null, "O tanque já está cheio!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                    break;
+                }else if (tmpQnt <= 0) {
+                    JOptionPane.showMessageDialog(null, "Erro, valor negativo !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    break;
+                }else if ((this.tanques[1] + tmpQnt) > 2000) {
+                    JOptionPane.showMessageDialog(null, "A quantidade de combustivel supera a capacidade do tanque!", "Erro", JOptionPane.WARNING_MESSAGE);
+                    break;
+                }
+            case 3:
+                if(tanques[2] + tmpQnt <= 20000 && tmpQnt > 0){
+                    this.tanques[2] += tmpQnt;
+                    this.lCmp[2] += tmpQnt;
+                    this.lCmp[4] += tmpQnt;
+                    this.despesas += tmpQnt * valorCmp[2];
+                    JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }else if (this.tanques[2] == 20000 && (tmpQnt > 0)) {
+                    JOptionPane.showMessageDialog(null, "O tanque já está cheio!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                    break;
+                }else if (tmpQnt <= 0) {
+                    JOptionPane.showMessageDialog(null, "Erro, valor negativo !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    break;
+                }else if ((this.tanques[2] + tmpQnt) > 2000) {
+                    JOptionPane.showMessageDialog(null, "A quantidade de combustivel supera a capacidade do tanque!", "Erro", JOptionPane.WARNING_MESSAGE);
+                    break;
+                }
+            case 4:
+                if(tanques[3] + tmpQnt <= 20000 && tmpQnt > 0){
+                    this.tanques[3] += tmpQnt;
+                    this.lCmp[3] += tmpQnt;
+                    this.lCmp[4] += tmpQnt;
+                    this.despesas += tmpQnt * valorCmp[3];
+                    JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }else if (this.tanques[3] == 20000 && (tmpQnt > 0)) {
+                    JOptionPane.showMessageDialog(null, "O tanque já está cheio!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                    break;
+                }else if (tmpQnt <= 0) {
+                    JOptionPane.showMessageDialog(null, "Erro, valor negativo !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                    break;
+                }else if ((this.tanques[3] + tmpQnt) > 2000) {
+                    JOptionPane.showMessageDialog(null, "A quantidade de combustivel supera a capacidade do tanque!", "Erro", JOptionPane.WARNING_MESSAGE);
+                    break;
+                }
+            default:
+                JOptionPane.showMessageDialog(null, "Houve um erro no abastecimento", "Erro", JOptionPane.WARNING_MESSAGE);
+                break;
+        }
+    }
+    
+    public void abastecerCarro(int tmpComb, float tmpValor){
+        float tmpLitros;
+        switch(tmpComb){
+            case 1:
+                tmpLitros = tmpValor/valorVend[0];
+                if((this.tanques[0] - tmpLitros) <= this.tanques[0] && tmpValor > 0 ){
+                    this.tanques[0] -= tmpLitros;
+                    this.lVend[0] += tmpLitros;
+                    this.lVend[4] += tmpLitros;
+                    this.lucros += tmpValor;
+                    JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }else if (this.tanques[0] == 0 && (tmpValor > 0)) {
+                    JOptionPane.showMessageDialog(null, "A bomba de Etanol está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                } else if (tmpValor <= 0) {
+                    JOptionPane.showMessageDialog(null, "Erro, valor negativo !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                } else if (tmpLitros > this.tanques[0]) {
+                    JOptionPane.showMessageDialog(null, "Não há combustível o suficiente !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                }
+            case 2:
+                tmpLitros = tmpValor/valorVend[1];
+                if((this.tanques[1] - tmpLitros) <= this.tanques[1] && tmpValor > 0 ){
+                    this.tanques[1] -= tmpLitros;
+                    this.lVend[1] += tmpLitros;
+                    this.lVend[4] += tmpLitros;
+                    this.lucros += tmpValor;
+                    JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }else if (this.tanques[1] == 0 && (tmpValor > 0)) {
+                    JOptionPane.showMessageDialog(null, "A bomba de Etanol está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                } else if (tmpValor <= 0) {
+                    JOptionPane.showMessageDialog(null, "Erro, valor negativo !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                } else if (tmpLitros > this.tanques[1]) {
+                    JOptionPane.showMessageDialog(null, "Não há combustível o suficiente !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                }
+            case 3:
+                tmpLitros = tmpValor/valorVend[2];
+                if((this.tanques[2] - tmpLitros) <= this.tanques[2] && tmpValor > 0 ){
+                    this.tanques[2] -= tmpLitros;
+                    this.lVend[2] += tmpLitros;
+                    this.lVend[4] += tmpLitros;
+                    this.lucros += tmpValor;
+                    JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }else if (this.tanques[2] == 0 && (tmpValor > 0)) {
+                    JOptionPane.showMessageDialog(null, "A bomba de Etanol está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                } else if (tmpValor <= 0) {
+                    JOptionPane.showMessageDialog(null, "Erro, valor negativo !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                } else if (tmpLitros > this.tanques[0]) {
+                    JOptionPane.showMessageDialog(null, "Não há combustível o suficiente !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                }
+            case 4:
+                tmpLitros = tmpValor/valorVend[3];
+                if((this.tanques[3] - tmpLitros) <= this.tanques[0] && tmpValor > 0 ){
+                    this.tanques[3] -= tmpLitros;
+                    this.lVend[3] += tmpLitros;
+                    this.lVend[4] += tmpLitros;
+                    this.lucros += tmpValor;
+                    JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }else if (this.tanques[3] == 0 && (tmpValor > 0)) {
+                    JOptionPane.showMessageDialog(null, "A bomba de Etanol está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                } else if (tmpValor <= 0) {
+                    JOptionPane.showMessageDialog(null, "Erro, valor negativo !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                } else if (tmpLitros > this.tanques[0]) {
+                    JOptionPane.showMessageDialog(null, "Não há combustível o suficiente !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                }
+            default:
+                JOptionPane.showMessageDialog(null, "Houve um erro no abastecimento", "Erro", JOptionPane.WARNING_MESSAGE);
+                break;
+        }
+    }
+    
+}
