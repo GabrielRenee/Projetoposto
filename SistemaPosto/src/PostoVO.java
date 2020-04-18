@@ -27,7 +27,7 @@ public class PostoVO {
     }
     public void abastecerTanque(int tmpComb, int tmpQnt){
         switch(tmpComb){
-            case 1:
+            case 0:
                 if(tanques[0] + tmpQnt <= 20000 && tmpQnt > 0){
                     this.tanques[0] += tmpQnt;
                     this.lCmp[0] += tmpQnt;
@@ -45,7 +45,7 @@ public class PostoVO {
                     JOptionPane.showMessageDialog(null, "A quantidade de combustivel supera a capacidade do tanque!", "Erro", JOptionPane.WARNING_MESSAGE);
                     break;
                 }
-            case 2:
+            case 1:
                 if(tanques[1] + tmpQnt <= 20000 && tmpQnt > 0){
                     this.tanques[1] += tmpQnt;
                     this.lCmp[1] += tmpQnt;
@@ -63,7 +63,7 @@ public class PostoVO {
                     JOptionPane.showMessageDialog(null, "A quantidade de combustivel supera a capacidade do tanque!", "Erro", JOptionPane.WARNING_MESSAGE);
                     break;
                 }
-            case 3:
+            case 2:
                 if(tanques[2] + tmpQnt <= 20000 && tmpQnt > 0){
                     this.tanques[2] += tmpQnt;
                     this.lCmp[2] += tmpQnt;
@@ -81,7 +81,7 @@ public class PostoVO {
                     JOptionPane.showMessageDialog(null, "A quantidade de combustivel supera a capacidade do tanque!", "Erro", JOptionPane.WARNING_MESSAGE);
                     break;
                 }
-            case 4:
+            case 3:
                 if(tanques[3] + tmpQnt <= 20000 && tmpQnt > 0){
                     this.tanques[3] += tmpQnt;
                     this.lCmp[3] += tmpQnt;
@@ -108,7 +108,7 @@ public class PostoVO {
     public void abastecerCarro(int tmpComb, float tmpValor){
         float tmpLitros;
         switch(tmpComb){
-            case 1:
+            case 0:
                 tmpLitros = tmpValor/valorVend[0];
                 if((this.tanques[0] - tmpLitros) <= this.tanques[0] && tmpValor > 0 ){
                     this.tanques[0] -= tmpLitros;
@@ -124,7 +124,7 @@ public class PostoVO {
                 } else if (tmpLitros > this.tanques[0]) {
                     JOptionPane.showMessageDialog(null, "Não há combustível o suficiente !!!", "Erro", JOptionPane.WARNING_MESSAGE);
                 }
-            case 2:
+            case 1:
                 tmpLitros = tmpValor/valorVend[1];
                 if((this.tanques[1] - tmpLitros) <= this.tanques[1] && tmpValor > 0 ){
                     this.tanques[1] -= tmpLitros;
@@ -140,7 +140,7 @@ public class PostoVO {
                 } else if (tmpLitros > this.tanques[1]) {
                     JOptionPane.showMessageDialog(null, "Não há combustível o suficiente !!!", "Erro", JOptionPane.WARNING_MESSAGE);
                 }
-            case 3:
+            case 2:
                 tmpLitros = tmpValor/valorVend[2];
                 if((this.tanques[2] - tmpLitros) <= this.tanques[2] && tmpValor > 0 ){
                     this.tanques[2] -= tmpLitros;
@@ -156,7 +156,7 @@ public class PostoVO {
                 } else if (tmpLitros > this.tanques[0]) {
                     JOptionPane.showMessageDialog(null, "Não há combustível o suficiente !!!", "Erro", JOptionPane.WARNING_MESSAGE);
                 }
-            case 4:
+            case 3:
                 tmpLitros = tmpValor/valorVend[3];
                 if((this.tanques[3] - tmpLitros) <= this.tanques[0] && tmpValor > 0 ){
                     this.tanques[3] -= tmpLitros;
