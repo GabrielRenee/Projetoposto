@@ -63,8 +63,8 @@ public class MenuView extends JFrame implements ActionListener{
     
     public void actionPerformed(ActionEvent evt){
         if(evt.getSource() == btnTanque){   
-            
             TanqueView telaTanque = new TanqueView();
+            JOptionPane.showMessageDialog(null, "Selecione o combustível que irá abastecer", "AVISO", JOptionPane.WARNING_MESSAGE);
             dispose();
         }else if (evt.getSource() == btnAbastecer){
             AbastecerView telaAbastecer = new AbastecerView();

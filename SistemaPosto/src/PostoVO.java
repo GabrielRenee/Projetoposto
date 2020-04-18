@@ -4,12 +4,13 @@ import javax.swing.*;
 
 public class PostoVO {
     
-    public float[] valorCmp = new float[4]; // 0- etanol; 1- gasolina; 2-aditivada; 3- diesel
-    public float[] valorVend = new float[4];
-    public float[] tanques = new float[4];//0- etanol; 1- gasolina; 2-aditivada; 3- diesel
-    public float[] lVend = new float[5]; //Litros vendidos: 0- etanol; 1- gasolina; 2- aditivada; 3- diesel; 4- total
-    public float[] lCmp = new float[5];//Litros comprados: 0- etanol; 1- gasolina; 2- aditivada; 3- diesel; 4- total
-    public float despesas, lucros;
+    public int servicos[] = new int[5]; //0 = Ducha | 1 = Óleo | 2 = Balanceamento | 3 = Café | 4 = Total
+    public float valorCmp[] = new float[4]; // Custo: 0- etanol; 1- gasolina; 2-aditivada; 3- diesel
+    public float valorVend[] = new float[4]; // Venda: 0- etanol; 1- gasolina; 2-aditivada; 3- diesel
+    public float tanques[] = new float[4];//0- etanol; 1- gasolina; 2-aditivada; 3- diesel
+    public float lVend[] = new float[5]; //Litros vendidos: 0- etanol; 1- gasolina; 2- aditivada; 3- diesel; 4- total
+    public float lCmp[] = new float[5];//Litros comprados: 0- etanol; 1- gasolina; 2- aditivada; 3- diesel; 4- total
+    public float despesas, lucros, lucroServ;
     
     public PostoVO() { //Inicializa os tanques com 0;
         for (int i = 0; i < 4; i++) {
@@ -34,7 +35,7 @@ public class PostoVO {
                     this.lCmp[4] += tmpQnt;
                     this.despesas += tmpQnt * valorCmp[0];
                     JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
-                    break;
+                    
                 }else if (this.tanques[0] == 20000 && (tmpQnt > 0)) {
                     JOptionPane.showMessageDialog(null, "O tanque já está cheio!!", "Erro", JOptionPane.WARNING_MESSAGE);
                     break;
@@ -178,4 +179,28 @@ public class PostoVO {
         }
     }
     
+    public void venderServiços(int tmpServ){
+    switch(tmpServ){
+        case 0:
+            this.servicos[0]++;
+            this.servicos[4]++;
+            this.lucroServ += 8.00;
+            JOptionPane.showMessageDialog(null, "Ducha Concluída !!!\nValor: RS 8,00", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+        case 1:
+            this.servicos[1]++;
+            this.servicos[4]++;
+            this.lucroServ += 50.00;
+            JOptionPane.showMessageDialog(null, "Troca de óleo efetuada !!!\nValor: R$ 50,00", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+        case 2:
+            this.servicos[2]++;
+            this.servicos[4]++;
+            this.lucroServ += 35.00;
+            JOptionPane.showMessageDialog(null, "Balanceamento Concluído !!!\nValor: RS 35,00", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+        case 3:
+            this.servicos[3]++;
+            this.servicos[4]++;
+            this.lucroServ += 2.00;
+            JOptionPane.showMessageDialog(null, "Café comprado !!!\nValor: RS 2,00", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+    }
+    }
 }
