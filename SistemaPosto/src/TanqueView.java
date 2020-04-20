@@ -16,12 +16,12 @@ public class TanqueView extends JFrame implements ActionListener {
     public static int tmpComb, tmpQnt, tmpParte;
 
     public TanqueView() {
-        super("Abastecer Tanque");
+        super("Abastecer Bomba");
         ctnTanque = new Container();
         ctnTanque.setLayout(null);
         this.add(ctnTanque);
 
-        lblTitulo = new JLabel("Abastecer Tanque");
+        lblTitulo = new JLabel("Abastecer Bomba");
         lblTitulo.setFont(fntTitulos);
         lblTitulo.setForeground(new Color(0, 0, 60));
         lblTitulo.setBounds(200, 20, 250, 30);
@@ -187,6 +187,8 @@ public class TanqueView extends JFrame implements ActionListener {
             tmpComb = 3;
 
         } else if (evt.getSource() == btnAbastecer) {
+            
+            
             try {
                 tmpQnt = Integer.parseInt(txtLitros.getText());
                 lblInvalido.setText("");
@@ -205,6 +207,8 @@ public class TanqueView extends JFrame implements ActionListener {
             btnGas.setEnabled(true);
             btnEta.setEnabled(true);
             SistemaControl.objPosto.abastecerTanque(tmpComb, tmpQnt);
+            TanqueView telaTanque = new TanqueView();
+            this.dispose();
         }
 
     }

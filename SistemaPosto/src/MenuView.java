@@ -24,7 +24,7 @@ public class MenuView extends JFrame implements ActionListener{
         lblTitulo.setBounds(285, 20, 230, 30);
         ctnTela.add(lblTitulo);
         
-        btnTanque = new JButton("Abastecer tanque");
+        btnTanque = new JButton("Abastecer Bomba");
         btnTanque.setFont(fntTexto);
         btnTanque.addActionListener(this);
         btnTanque.setForeground(new Color(60, 60, 60));
@@ -64,7 +64,7 @@ public class MenuView extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent evt){
         if(evt.getSource() == btnTanque){   
             TanqueView telaTanque = new TanqueView();
-            JOptionPane.showMessageDialog(null, "Selecione o combustível que irá abastecer", "AVISO", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Selecione a bomba que irá abastecer", "AVISO", JOptionPane.WARNING_MESSAGE);
             dispose();
         }else if (evt.getSource() == btnAbastecer){
             AbastecerView telaAbastecer = new AbastecerView();
