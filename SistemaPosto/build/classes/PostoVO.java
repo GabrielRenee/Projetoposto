@@ -111,7 +111,7 @@ public class  PostoVO {
         switch(tmpComb){
             case 0:
                 tmpLitros =  tmpValor/valorVend[0];
-                if((this.tanques[0] - tmpLitros) >= this.tanques[0] && tmpValor > 0 ){
+                if((this.tanques[0] - tmpLitros) >= 0 && tmpValor > 0 ){
                     this.tanques[0] -= tmpLitros;
                     this.lVend[0] += tmpLitros;
                     this.lVend[4] += tmpLitros;
@@ -130,7 +130,7 @@ public class  PostoVO {
                 }
             case 1:
                 tmpLitros = tmpValor/valorVend[1];
-                if((this.tanques[1] - tmpLitros) >= this.tanques[1] && tmpValor > 0 ){
+                if((this.tanques[1] - tmpLitros) >= 0 && tmpValor > 0 ){
                     this.tanques[1] -= tmpLitros;
                     this.lVend[1] += tmpLitros;
                     this.lVend[4] += tmpLitros;
@@ -149,7 +149,7 @@ public class  PostoVO {
                 }
             case 2:
                 tmpLitros = tmpValor/valorVend[2];
-                if((this.tanques[2] - tmpLitros) >= this.tanques[2] && tmpValor > 0 ){
+                if((this.tanques[2] - tmpLitros) >= 0 && tmpValor > 0 ){
                     this.tanques[2] -= tmpLitros;
                     this.lVend[2] += tmpLitros;
                     this.lVend[4] += tmpLitros;
@@ -168,7 +168,7 @@ public class  PostoVO {
                 }
             case 3:
                 tmpLitros = tmpValor/valorVend[3];
-                if((this.tanques[3] - tmpLitros) >= this.tanques[0] && tmpValor > 0 ){
+                if((this.tanques[3] - tmpLitros) >= 0 && tmpValor > 0 ){
                     this.tanques[3] -= tmpLitros;
                     this.lVend[3] += tmpLitros;
                     this.lVend[4] += tmpLitros;
