@@ -16,12 +16,12 @@ public class TanqueView extends JFrame implements ActionListener {
     public static int tmpComb, tmpQnt, tmpParte;
 
     public TanqueView() {
-        super("Abastecer Tanque");
+        super("Abastecer Bomba");
         ctnTanque = new Container();
         ctnTanque.setLayout(null);
         this.add(ctnTanque);
 
-        lblTitulo = new JLabel("Abastecer Tanque");
+        lblTitulo = new JLabel("Abastecer Bomba");
         lblTitulo.setFont(fntTitulos);
         lblTitulo.setForeground(new Color(0, 0, 60));
         lblTitulo.setBounds(200, 20, 250, 30);
