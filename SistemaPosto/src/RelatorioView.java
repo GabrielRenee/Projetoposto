@@ -52,6 +52,7 @@ public class RelatorioView extends JFrame implements ActionListener{
         btnDespesas.setFont(fntTexto);
         btnDespesas.setForeground(new Color(60, 60, 60));
         btnDespesas.setBounds(427, 60, 120, 40);
+        btnDespesas.addActionListener(this);
         ctnRelatorio.add(btnDespesas);
         
         btnVolta = new JButton("Voltar");
@@ -99,34 +100,34 @@ public class RelatorioView extends JFrame implements ActionListener{
         txtLucros = new JTextPane();
         txtLucros.setEditable(false);
         txtLucros.setForeground(new Color(0, 0, 0));
-        txtLucros.setBounds(37,120,510,500);
+        txtLucros.setBounds(37,120,510,340);
         txtLucros.setFont(fntTexto);
         ctnRelatorio.add(txtLucros);
         txtLucros.setVisible(false);
         txtLucros.setText("Combustíveis:\n\n"+
-                "Lucro bruto = R$ " + rs.format(SistemaControl.objPosto.lucros) + "\n"+
-                "Lucro líquido = R$ " + rs.format((SistemaControl.objPosto.lucros - SistemaControl.objPosto.despesas)) + "\n"+
+                "Lucro bruto ------------------------------------------- R$ " + rs.format(SistemaControl.objPosto.lucros) + "\n"+
+                "Lucro líquido  --------------------------------- R$ " + rs.format((SistemaControl.objPosto.lucros - SistemaControl.objPosto.despesas)) + "\n"+
                 " ------------------------------------------------------------------------\n"+
                 "Serviços:\n\n"+
-                "Lucro bruto: R$ " + rs.format(SistemaControl.objPosto.lucroServ) + "\n"+ //Como não há despesas com serviços, o lucro é bruto
-                "-------------------------\n"+
-                "Total:\n"+
-                "Lucros Brutos: R$ " + rs.format((SistemaControl.objPosto.lucros + SistemaControl.objPosto.lucroServ)) + "\n" +
-                "Lucros Líquidos: R$ " + rs.format(((SistemaControl.objPosto.lucros - SistemaControl.objPosto.despesas) + SistemaControl.objPosto.lucroServ)) + "\n");
+                "Lucro bruto ---------------------------------------------- R$ " + rs.format(SistemaControl.objPosto.lucroServ) + "\n"+ //Como não há despesas com serviços, o lucro é bruto
+                " ------------------------------------------------------------------------\n"+
+                "Total:\n\n"+
+                "Lucros Brutos ------------------------------------------- R$ " + rs.format((SistemaControl.objPosto.lucros + SistemaControl.objPosto.lucroServ)) + "\n" +
+                "Lucros Líquidos  ------------------------------ R$ " + rs.format(((SistemaControl.objPosto.lucros - SistemaControl.objPosto.despesas) + SistemaControl.objPosto.lucroServ)) + "\n");
         
         txtDespesas = new JTextPane();
         txtDespesas.setEditable(false);
         txtDespesas.setForeground(new Color(0, 0, 0));
-        txtDespesas.setBounds(37,120,547,200);
+        txtDespesas.setBounds(37,120,547,160);
         txtDespesas.setFont(fntTexto);
         ctnRelatorio.add(txtDespesas);
         txtDespesas.setVisible(false);
         txtDespesas.setText("Despesas:\n\n"
-                + "1 - Etanol  -------------------------------------- " + df.format(SistemaControl.objPosto.lCmp[0]) + " litros | R$"+ rs.format(SistemaControl.objPosto.lCmp[0]*SistemaControl.objPosto.valorCmp[0])+ "\n"
-                + "2 - Gasolina Comum  -------------------------- " + df.format(SistemaControl.objPosto.lCmp[1]) + " litros | R$"+ rs.format(SistemaControl.objPosto.lCmp[1]*SistemaControl.objPosto.valorCmp[1])+ "\n"
-                + "3 - Gasolina Aditivada  ------------------------ " + df.format(SistemaControl.objPosto.lCmp[2]) + " litros | R$"+ rs.format(SistemaControl.objPosto.lCmp[2]*SistemaControl.objPosto.valorCmp[2])+ "\n"
-                + "4 - Diesel  -------------------------------------- " + df.format(SistemaControl.objPosto.lCmp[3]) + " litros | R$" + rs.format(SistemaControl.objPosto.lCmp[3]*SistemaControl.objPosto.valorCmp[3])
-                + "\n Total - " + df.format(SistemaControl.objPosto.lCmp[4]) + " litros | R$" + rs.format(SistemaControl.objPosto.despesas)
+                + "1 - Etanol  -------------------------- " + df.format(SistemaControl.objPosto.lCmp[0]) + " litros | R$"+ rs.format(SistemaControl.objPosto.lCmp[0]*SistemaControl.objPosto.valorCmp[0])+ "\n"
+                + "2 - Gasolina Comum  ---------------- " + df.format(SistemaControl.objPosto.lCmp[1]) + " litros | R$"+ rs.format(SistemaControl.objPosto.lCmp[1]*SistemaControl.objPosto.valorCmp[1])+ "\n"
+                + "3 - Gasolina Aditivada  -------------- " + df.format(SistemaControl.objPosto.lCmp[2]) + " litros | R$"+ rs.format(SistemaControl.objPosto.lCmp[2]*SistemaControl.objPosto.valorCmp[2])+ "\n"
+                + "4 - Diesel  ---------------------------- " + df.format(SistemaControl.objPosto.lCmp[3]) + " litros | R$" + rs.format(SistemaControl.objPosto.lCmp[3]*SistemaControl.objPosto.valorCmp[3])+ "\n"
+                + "Total - " + df.format(SistemaControl.objPosto.lCmp[4]) + " litros | R$" + rs.format(SistemaControl.objPosto.despesas)
         );
         
         this.setLocation(600, 180);
@@ -157,21 +158,21 @@ public class RelatorioView extends JFrame implements ActionListener{
             
             btnVolta.setBounds(37, 485, 100, 30);
         }else if(evt.getSource() == btnLucros){
-            this.setSize(600,550);
+            this.setSize(600,530);
             txtTanques.setVisible(false);
             txtVendas.setVisible(false);
             txtLucros.setVisible(true);
             txtDespesas.setVisible(false);
             
-            btnVolta.setBounds(37, 485, 100, 30);
+            btnVolta.setBounds(37, 465, 100, 30);
         }else if(evt.getSource() == btnDespesas){
-            this.setSize(600,550);
+            this.setSize(600,350);
             txtTanques.setVisible(false);
             txtVendas.setVisible(false);
             txtLucros.setVisible(false);
             txtDespesas.setVisible(true);
             
-            btnVolta.setBounds(37, 485, 100, 30);
+            btnVolta.setBounds(37, 285, 100, 30);
         }
     }
 }

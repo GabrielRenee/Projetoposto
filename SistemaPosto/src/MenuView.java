@@ -68,12 +68,15 @@ public class MenuView extends JFrame implements ActionListener{
             dispose();
         }else if (evt.getSource() == btnAbastecer){
             AbastecerView telaAbastecer = new AbastecerView();
+             JOptionPane.showMessageDialog(null, "Selecione o combustível que irá abastecer", "AVISO", JOptionPane.WARNING_MESSAGE);
             dispose();
         }else if (evt.getSource()==btnServicos){
             ServicosView telaServicos = new ServicosView();
+             JOptionPane.showMessageDialog(null, "Selecione o serviço que deseja", "AVISO", JOptionPane.WARNING_MESSAGE);
             dispose();
         }else if (evt.getSource()==btnRelatorio){
             RelatorioView telaRelatorio = new RelatorioView();
+             JOptionPane.showMessageDialog(null, "Selecione o relatório que deseja vizualizar", "AVISO", JOptionPane.WARNING_MESSAGE);
             dispose();
         }
     }
