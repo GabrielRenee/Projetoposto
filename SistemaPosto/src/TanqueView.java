@@ -6,12 +6,13 @@ import javax.swing.*;
 public class TanqueView extends JFrame implements ActionListener {
 
     public static Container ctnTanque;
-    public static JLabel lblTitulo, lblInvalido;
+    public static JLabel lblTitulo, lblInvalido, lblCapEta, lblCapGas, lblCapAdt, lblCapDis;
     public static JButton btnEta, btnGas, btnAdt, btnDis, btnVolta, btnConcluir, btnAbastecer;
     public static JTextField txtLitros;
 
     public static Font fntTexto = new Font("Tahoma", Font.PLAIN, 18);
     public static Font fntTitulos = new Font("Arial", Font.BOLD, 26);
+    public static Font fntDados = new Font("Calibri",Font.BOLD, 12);
     public static int tmpComb, tmpQnt, tmpParte;
 
     public TanqueView() {
@@ -60,12 +61,18 @@ public class TanqueView extends JFrame implements ActionListener {
         } else if (SistemaControl.objPosto.tanques[0] < 5000) {
             btnEta.setBackground(new Color(252, 179, 179));
         }
+        lblCapEta = new JLabel("");
+        lblCapEta.setText(SistemaControl.objPosto.tanques[0] + " / 20000");
+        lblCapEta.setFont(fntDados);
+        lblCapEta.setForeground(new Color(60, 60, 60));
+        lblCapEta.setBounds(420, 115, 200, 20);
+        ctnTanque.add(lblCapEta);
 
         btnGas = new JButton("Gasolina Comum");
         btnGas.setFont(fntTexto);
         btnGas.addActionListener(this);
         btnGas.setForeground(new Color(60, 60, 60));
-        btnGas.setBounds(350, 125, 200, 40);
+        btnGas.setBounds(350, 130, 200, 40);
         ctnTanque.add(btnGas);
         if (SistemaControl.objPosto.tanques[1] >= 15000) {
             btnGas.setBackground(new Color(221, 255, 209));
@@ -74,12 +81,19 @@ public class TanqueView extends JFrame implements ActionListener {
         } else if (SistemaControl.objPosto.tanques[1] < 5000) {
             btnGas.setBackground(new Color(252, 179, 179));
         }
+        lblCapGas = new JLabel("");
+        lblCapGas.setText(SistemaControl.objPosto.tanques[1] + " / 20000");
+        lblCapGas.setFont(fntDados);
+        lblCapGas.setForeground(new Color(60, 60, 60));
+        lblCapGas.setBounds(420, 165, 200, 20);
+        ctnTanque.add(lblCapGas);
+        
 
         btnAdt = new JButton("Gasolina Aditivada");
         btnAdt.addActionListener(this);
         btnAdt.setFont(fntTexto);
         btnAdt.setForeground(new Color(60, 60, 60));
-        btnAdt.setBounds(350, 170, 200, 40);
+        btnAdt.setBounds(350, 180, 200, 40);
         ctnTanque.add(btnAdt);
         if (SistemaControl.objPosto.tanques[2] >= 15000) {
             btnAdt.setBackground(new Color(221, 255, 209));
@@ -88,12 +102,19 @@ public class TanqueView extends JFrame implements ActionListener {
         } else if (SistemaControl.objPosto.tanques[2] < 5000) {
             btnAdt.setBackground(new Color(252, 179, 179));
         }
+        
+        lblCapAdt = new JLabel("");
+        lblCapAdt.setText(SistemaControl.objPosto.tanques[2] + " / 20000");
+        lblCapAdt.setFont(fntDados);
+        lblCapAdt.setForeground(new Color(60, 60, 60));
+        lblCapAdt.setBounds(420, 215, 200, 20);
+        ctnTanque.add(lblCapAdt);
 
         btnDis = new JButton("Diesel");
         btnDis.setFont(fntTexto);
         btnDis.addActionListener(this);
         btnDis.setForeground(new Color(60, 60, 60));
-        btnDis.setBounds(350, 215, 200, 40);
+        btnDis.setBounds(350, 230, 200, 40);
         ctnTanque.add(btnDis);
         if (SistemaControl.objPosto.tanques[3] >= 15000) {
             btnDis.setBackground(new Color(221, 255, 209));
@@ -102,12 +123,19 @@ public class TanqueView extends JFrame implements ActionListener {
         } else if (SistemaControl.objPosto.tanques[3] < 5000) {
             btnDis.setBackground(new Color(252, 179, 179));
         }
+        lblCapDis = new JLabel("");
+        lblCapDis.setText(SistemaControl.objPosto.tanques[3] + " / 20000");
+        lblCapDis.setFont(fntDados);
+        lblCapDis.setForeground(new Color(60, 60, 60));
+        lblCapDis.setBounds(420, 265, 200, 20);
+        ctnTanque.add(lblCapDis);
+        
         
         btnVolta = new JButton("Voltar");
         btnVolta.setFont(fntTexto);
 
         btnVolta.setForeground(new Color(250, 60, 60));
-        btnVolta.setBounds(50, 225, 100, 30);
+        btnVolta.setBounds(50, 240, 100, 30);
         btnVolta.addActionListener(this);
         ctnTanque.add(btnVolta);
 
@@ -165,7 +193,10 @@ public class TanqueView extends JFrame implements ActionListener {
             } catch (NumberFormatException e) {
                 lblInvalido.setText("Número Inválido");
             }
-
+            lblCapEta.setText(SistemaControl.objPosto.tanques[0] + " / 20000");
+            lblCapGas.setText(SistemaControl.objPosto.tanques[1] + " / 20000");
+            lblCapAdt.setText(SistemaControl.objPosto.tanques[2] + " / 20000");
+            lblCapDis.setText(SistemaControl.objPosto.tanques[3] + " / 20000");
             txtLitros.setEnabled(false);
             txtLitros.setText("");
             btnAbastecer.setEnabled(false);
