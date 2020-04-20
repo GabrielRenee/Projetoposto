@@ -3,6 +3,7 @@ import java.awt.*;
 import javax.swing.*; 
 
 public class TanqueView extends JFrame implements ActionListener{
+    
     public static Container ctnTanque;
     public static JLabel lblTitulo, lblInvalido;
     public static JButton btnEta, btnGas, btnAdt, btnDis, btnVolta, btnConcluir, btnAbastecer;
@@ -40,8 +41,6 @@ public class TanqueView extends JFrame implements ActionListener{
         txtLitros.setForeground(new Color(60, 60, 60));
         txtLitros.setBounds(50, 80, 200, 40);
         txtLitros.setEnabled(false);
-        
-        
         ctnTanque.add(txtLitros);
         
         
@@ -51,6 +50,7 @@ public class TanqueView extends JFrame implements ActionListener{
         btnAbastecer.setForeground(new Color(60, 60, 60));
         btnAbastecer.setBounds(50, 125, 200, 40);
         btnAbastecer.setEnabled(false);
+        btnAbastecer.addActionListener(this);
         ctnTanque.add(btnAbastecer);
         
         btnEta = new JButton("Etanol");
@@ -80,14 +80,6 @@ public class TanqueView extends JFrame implements ActionListener{
         btnDis.setForeground(new Color(60, 60, 60));
         btnDis.setBounds(350, 215, 200, 40);
         ctnTanque.add(btnDis);
-        
-        btnConcluir = new JButton("Concluir");
-        btnConcluir.setFont(fntTexto);
-        btnConcluir.addActionListener(this);
-        btnConcluir.setForeground(new Color(60, 60, 60));
-        btnConcluir.setBounds(50, 190, 100, 30);
-        btnConcluir.setEnabled(false);
-        ctnTanque.add(btnConcluir);
         
         btnVolta = new JButton("Voltar");
         btnVolta.setFont(fntTexto);
@@ -124,18 +116,16 @@ public class TanqueView extends JFrame implements ActionListener{
             
             tmpComb = 3;
             habilitarCampos(tmpComb);
-        }
-        
-        if(evt.getSource() == btnConcluir){
+        }else if(evt.getSource() == btnAbastecer){
             try{
                 tmpQnt = Integer.parseInt(txtLitros.getText());
                 lblInvalido.setText("");
             }catch (NumberFormatException e){
                 lblInvalido.setText("Número Inválido");
             }
-            habilitarCampos(56);
-            SistemaControl.objTanq.abastecerTanque(tmpComb, tmpQnt);
             
+            SistemaControl.objPosto.abastecerTanque(tmpComb, tmpQnt);
+            habilitarCampos(9);
         }
         
     }
@@ -144,28 +134,28 @@ public class TanqueView extends JFrame implements ActionListener{
         switch (tmpComb) {
             case 0:
                 txtLitros.setEnabled(true);
-                btnConcluir.setEnabled(true);
+                btnAbastecer.setEnabled(true);
                 btnAdt.setEnabled(false);
                 btnDis.setEnabled(false);
                 btnGas.setEnabled(false);
                 break;
             case 1:
                 txtLitros.setEnabled(true);
-                btnConcluir.setEnabled(true);
+                btnAbastecer.setEnabled(true);
                 btnAdt.setEnabled(false);
                 btnDis.setEnabled(false);
                 btnEta.setEnabled(false);
                 break;
             case 2:
                 txtLitros.setEnabled(true);
-                btnConcluir.setEnabled(true);
+                btnAbastecer.setEnabled(true);
                 btnGas.setEnabled(false);
                 btnEta.setEnabled(false);
                 btnDis.setEnabled(false);
                 break;
             case 3:
                 txtLitros.setEnabled(true);
-                btnConcluir.setEnabled(true);
+                btnAbastecer.setEnabled(true);
                 btnAdt.setEnabled(false);
                 btnEta.setEnabled(false);
                 btnGas.setEnabled(false);
@@ -173,7 +163,7 @@ public class TanqueView extends JFrame implements ActionListener{
             default:
                 txtLitros.setEnabled(false);
                 txtLitros.setText("");
-                btnConcluir.setEnabled(false);
+                btnAbastecer.setEnabled(false);
                 btnAdt.setEnabled(true);
                 btnEta.setEnabled(true);
                 btnGas.setEnabled(true);

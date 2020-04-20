@@ -2,7 +2,7 @@
 import javax.swing.*;
 
 
-public class PostoVO {
+public class  PostoVO {
     
     public int servicos[] = new int[5]; //0 = Ducha | 1 = Óleo | 2 = Balanceamento | 3 = Café | 4 = Total
     public float valorCmp[] = new float[4]; // Custo: 0- etanol; 1- gasolina; 2-aditivada; 3- diesel
@@ -26,7 +26,7 @@ public class PostoVO {
         valorVend[2] = 4.39f; //Valor de venda aditivada;
         valorVend[3] = 3.29f; //Valor de venda diesel;
     }
-    public void abastecerTanque(int tmpComb, int tmpQnt){
+    public  void abastecerTanque(int tmpComb, int tmpQnt){
         switch(tmpComb){
             case 0:
                 if(tanques[0] + tmpQnt <= 20000 && tmpQnt > 0){
@@ -35,7 +35,7 @@ public class PostoVO {
                     this.lCmp[4] += tmpQnt;
                     this.despesas += tmpQnt * valorCmp[0];
                     JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
-                    
+                    break;
                 }else if (this.tanques[0] == 20000 && (tmpQnt > 0)) {
                     JOptionPane.showMessageDialog(null, "O tanque já está cheio!!", "Erro", JOptionPane.WARNING_MESSAGE);
                     break;

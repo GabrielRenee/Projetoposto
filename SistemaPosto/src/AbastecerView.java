@@ -130,7 +130,7 @@ public class AbastecerView extends JFrame implements ActionListener{
                 lblInvalido.setText("Número Inválido");
             }
             habilitarCampos(56);
-            SistemaControl.objTanq.abastecerTanque(tmpComb, tmpQnt);
+            SistemaControl.objPosto.abastecerTanque(tmpComb, tmpQnt);
             
         }
         

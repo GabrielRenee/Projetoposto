@@ -45,7 +45,7 @@ public class MenuView extends JFrame implements ActionListener{
         btnServicos.setBounds(90, 150, 620, 60);
         ctnTela.add(btnServicos);
         
-        btnRelatorio = new JButton("Relatórios de venda");
+        btnRelatorio = new JButton("Relatórios");
         btnRelatorio.setFont(fntTexto);
         btnRelatorio.addActionListener(this);
         btnRelatorio.setForeground(new Color(60, 60, 60));
