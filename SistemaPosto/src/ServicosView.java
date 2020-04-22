@@ -188,27 +188,31 @@ public void precoServicos(int tmpServ){
         }else if(evt.getSource() == btnCafe){
             tmpTotal += 2;
             txtTotal.setText(Integer.toString(tmpTotal));
-            tmpTotal = precoServicos.servicos(5);
+            tmpTotal = (SistemaControl.servicos.servicos[5]);
             tmpServ = 0;
             habilitarCampos(tmpServ);
         }else if(evt.getSource() == btnSalgado){
             tmpTotal += 4;
             txtTotal.setText(Integer.toString(tmpTotal));
+            tmpTotal = (SistemaControl.servicos.servicos[5]);
             tmpServ = 1;
             habilitarCampos(tmpServ);
         }else if(evt.getSource() == btnDucha){
             tmpTotal += 8;
             txtTotal.setText(Integer.toString(tmpTotal));
+            tmpTotal = (SistemaControl.servicos.servicos[5]);
             tmpServ = 2;
             habilitarCampos(tmpServ);
         }else if(evt.getSource() == btnBalanceamento){
             tmpTotal += 35;
             txtTotal.setText(Integer.toString(tmpTotal));
+            tmpTotal = (SistemaControl.servicos.servicos[5]);
             tmpServ = 3;
             habilitarCampos(tmpServ);
         }else if(evt.getSource() == btnTroca){
             tmpTotal += 50;
             txtTotal.setText(Integer.toString(tmpTotal));
+            tmpTotal = (SistemaControl.servicos.servicos[5]);
             tmpServ = 4;
             habilitarCampos(tmpServ);
         }
