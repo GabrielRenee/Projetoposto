@@ -151,20 +151,23 @@ public class ServicosView extends JFrame implements ActionListener {
             tmpServ = 0;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
-
+            JOptionPane.showMessageDialog(null, "Café comprado !!!\nValor: RS 2,00", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+            
         } else if (evt.getSource() == btnSalgado) {
             tmpTotal += 4;
             txtTotal.setText(Integer.toString(tmpTotal));
             tmpServ = 1;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
-
+            JOptionPane.showMessageDialog(null, "Salgado comprado !!!\nValor: RS 4,00", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+            
         } else if (evt.getSource() == btnDucha) {
             tmpTotal += 8;
             txtTotal.setText(Integer.toString(tmpTotal));
             tmpServ = 2;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
+            JOptionPane.showMessageDialog(null, "Ducha Concluída !!!\nValor: RS 8,00", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
 
         } else if (evt.getSource() == btnBalanceamento) {
             tmpTotal += 35;
@@ -172,6 +175,7 @@ public class ServicosView extends JFrame implements ActionListener {
             tmpServ = 3;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
+            JOptionPane.showMessageDialog(null, "Balanceamento Concluído !!!\nValor: RS 35,00", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
             
         } else if (evt.getSource() == btnTroca) {
             tmpTotal += 50;
@@ -179,6 +183,7 @@ public class ServicosView extends JFrame implements ActionListener {
             tmpServ = 4;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
+            JOptionPane.showMessageDialog(null, "Troca de óleo efetuada !!!\nValor: R$ 50,00", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
 
         } else if (evt.getSource() == btnConcluir) {
             

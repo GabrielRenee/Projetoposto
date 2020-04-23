@@ -2,13 +2,17 @@
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
+import java.text.DecimalFormat;
+
 
 public class AbastecerView extends JFrame implements ActionListener {
 
+    DecimalFormat df = new DecimalFormat("0.000"); //Litros
+    DecimalFormat rs = new DecimalFormat("0.00"); //Preços
     public static Container ctnAbastecer;
-    public static JLabel lblTitulo, lblInvalido, lblCapEta, lblCapGas, 
+    public static JLabel lblTitulo, lblInvalido, lblCapEta, lblCapGas,
             lblCapAdt, lblCapDis, lblRS;
-    
+
     public static JButton btnEta, btnGas, btnAdt, btnDis, btnVolta, btnAbastecer;
     public static JTextField txtLitros, txtTotal;
 
@@ -16,7 +20,7 @@ public class AbastecerView extends JFrame implements ActionListener {
     public static Font fntTexto = new Font("Tahoma", Font.PLAIN, 18);
     public static Font fntTitulos = new Font("Arial", Font.BOLD, 26);
     public static int tmpComb, tmpParte;
-    public static float tmpValor;
+    public static float tmpValor, tmpLitros;
 
     public AbastecerView() {
         super("Abastecer Carro");
@@ -42,7 +46,7 @@ public class AbastecerView extends JFrame implements ActionListener {
         txtLitros.setBounds(40, 80, 200, 40);
         txtLitros.setEnabled(false);
         ctnAbastecer.add(txtLitros);
-        
+
         lblRS = new JLabel("R$");
         lblRS.setFont(fntTitulos);
         lblRS.setForeground(new Color(60, 60, 60));
@@ -71,7 +75,7 @@ public class AbastecerView extends JFrame implements ActionListener {
         } else if (SistemaControl.objPosto.tanques[0] < 5000) {
             btnEta.setBackground(new Color(252, 179, 179));
         }
-        if(SistemaControl.objPosto.tanques[0] == 0){
+        if (SistemaControl.objPosto.tanques[0] == 0) {
             btnEta.setEnabled(false);
         }
         lblCapEta = new JLabel("");
@@ -94,8 +98,8 @@ public class AbastecerView extends JFrame implements ActionListener {
         } else if (SistemaControl.objPosto.tanques[1] < 5000) {
             btnGas.setBackground(new Color(252, 179, 179));
         }
-        
-        if(SistemaControl.objPosto.tanques[1] == 0){
+
+        if (SistemaControl.objPosto.tanques[1] == 0) {
             btnGas.setEnabled(false);
         }
         lblCapGas = new JLabel("");
@@ -111,7 +115,7 @@ public class AbastecerView extends JFrame implements ActionListener {
         btnAdt.setForeground(new Color(60, 60, 60));
         btnAdt.setBounds(300, 180, 275, 40);
         ctnAbastecer.add(btnAdt);
-        
+
         if (SistemaControl.objPosto.tanques[2] >= 15000) {
             btnAdt.setBackground(new Color(221, 255, 209));
         } else if (SistemaControl.objPosto.tanques[2] >= 5000) {
@@ -119,7 +123,7 @@ public class AbastecerView extends JFrame implements ActionListener {
         } else if (SistemaControl.objPosto.tanques[2] < 5000) {
             btnAdt.setBackground(new Color(252, 179, 179));
         }
-        if(SistemaControl.objPosto.tanques[2] == 0){
+        if (SistemaControl.objPosto.tanques[2] == 0) {
             btnAdt.setEnabled(false);
         }
         lblCapAdt = new JLabel("");
@@ -142,10 +146,10 @@ public class AbastecerView extends JFrame implements ActionListener {
         } else if (SistemaControl.objPosto.tanques[3] < 5000) {
             btnDis.setBackground(new Color(252, 179, 179));
         }
-        if(SistemaControl.objPosto.tanques[3] == 0){
+        if (SistemaControl.objPosto.tanques[3] == 0) {
             btnDis.setEnabled(false);
         }
-        
+
         lblCapDis = new JLabel("");
         lblCapDis.setText(SistemaControl.objPosto.tanques[3] + " / 20000");
         lblCapDis.setFont(fntDados);
@@ -173,7 +177,7 @@ public class AbastecerView extends JFrame implements ActionListener {
             this.dispose();
             new MenuView().setVisible(true);
         } else if (evt.getSource() == btnEta) {
-            
+
             btnAdt.setEnabled(false);
             btnEta.setEnabled(false);
             btnGas.setEnabled(false);
@@ -181,7 +185,7 @@ public class AbastecerView extends JFrame implements ActionListener {
             txtLitros.setEnabled(true);
             btnAbastecer.setEnabled(true);
             tmpComb = 0;
-            
+
         } else if (evt.getSource() == btnGas) {
             btnAdt.setEnabled(false);
             btnEta.setEnabled(false);
@@ -190,7 +194,7 @@ public class AbastecerView extends JFrame implements ActionListener {
             txtLitros.setEnabled(true);
             btnAbastecer.setEnabled(true);
             tmpComb = 1;
-            
+
         } else if (evt.getSource() == btnAdt) {
             btnAdt.setEnabled(false);
             btnEta.setEnabled(false);
@@ -199,7 +203,7 @@ public class AbastecerView extends JFrame implements ActionListener {
             txtLitros.setEnabled(true);
             btnAbastecer.setEnabled(true);
             tmpComb = 2;
-            
+
         } else if (evt.getSource() == btnDis) {
             btnAdt.setEnabled(false);
             btnEta.setEnabled(false);
@@ -208,13 +212,96 @@ public class AbastecerView extends JFrame implements ActionListener {
             txtLitros.setEnabled(true);
             btnAbastecer.setEnabled(true);
             tmpComb = 3;
-        }else if (evt.getSource() == btnAbastecer) {
+        } else if (evt.getSource() == btnAbastecer) {
             try {
                 tmpValor = Float.parseFloat(txtLitros.getText());
                 lblInvalido.setText("");
             } catch (NumberFormatException e) {
                 lblInvalido.setText("Número Inválido");
-            }    
+            }
+            switch (tmpComb) {
+                
+                case 0:
+                    tmpLitros = tmpValor / SistemaControl.objPosto.valorVend[0];
+                    switch (SistemaControl.objPosto.abastecerCarro(tmpComb, tmpValor)) {
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!\n" + df.format(tmpLitros) + " de etanol", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+                        case 2:
+                            JOptionPane.showMessageDialog(null, "A bomba de Etanol está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        case 3:
+                            JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                            break;
+                        case 4:
+                            JOptionPane.showMessageDialog(null, "Não há combustível o suficiente !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        default:
+                            JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                            break;
+                    }
+                    break;
+                case 1:
+                    tmpLitros = tmpValor / SistemaControl.objPosto.valorVend[1];
+                    switch (SistemaControl.objPosto.abastecerCarro(tmpComb, tmpValor)) {
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!\n" + df.format(tmpLitros) + " de gasolina", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+                        case 2:
+                            JOptionPane.showMessageDialog(null, "A bomba de Etanol está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        case 3:
+                            JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                            break;
+                        case 4:
+                            JOptionPane.showMessageDialog(null, "Não há combustível o suficiente !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        default:
+                            JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                            break;
+                    }
+                    break;
+                case 2:
+                    tmpLitros = tmpValor / SistemaControl.objPosto.valorVend[2];
+                    switch (SistemaControl.objPosto.abastecerCarro(tmpComb, tmpValor)) {
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!\n" + df.format(tmpLitros) + " de aditivada", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+                        case 2:
+                            JOptionPane.showMessageDialog(null, "A bomba de Etanol está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        case 3:
+                            JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                            break;
+                        case 4:
+                            JOptionPane.showMessageDialog(null, "Não há combustível o suficiente !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        default:
+                            JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                            break;
+                    }
+                    break;
+                case 3:
+                    tmpLitros = tmpValor / SistemaControl.objPosto.valorVend[3];
+                    switch (SistemaControl.objPosto.abastecerCarro(tmpComb, tmpValor)) {
+                        case 1:
+                            JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!\n" + df.format(tmpLitros) + " de diesel", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+                        case 2:
+                            JOptionPane.showMessageDialog(null, "A bomba de Etanol está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        case 3:
+                            JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                            break;
+                        case 4:
+                            JOptionPane.showMessageDialog(null, "Não há combustível o suficiente !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        default:
+                            JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                            break;
+                    }
+                break;
+            };
             txtLitros.setEnabled(false);
             txtLitros.setText("");
             btnAbastecer.setEnabled(false);
@@ -222,9 +309,7 @@ public class AbastecerView extends JFrame implements ActionListener {
             btnEta.setEnabled(true);
             btnGas.setEnabled(true);
             btnDis.setEnabled(true);
-            
-            SistemaControl.objPosto.abastecerCarro(tmpComb, tmpValor);
-            
+
             AbastecerView telaAbastecer = new AbastecerView();
             this.dispose();
         }

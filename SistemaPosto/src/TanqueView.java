@@ -195,6 +195,25 @@ public class TanqueView extends JFrame implements ActionListener {
             } catch (NumberFormatException e) {
                 lblInvalido.setText("Número Inválido");
             }
+            
+            switch(SistemaControl.objPosto.abastecerTanque(tmpComb, tmpQnt)){
+                    case 1:
+                        JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 2:
+                        JOptionPane.showMessageDialog(null, "O tanque já está cheio!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    case 3:
+                        JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                        break;
+                    case 4:
+                        JOptionPane.showMessageDialog(null, "A quantidade de combustivel supera a capacidade do tanque!", "Erro", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
+                        break;
+            }
+            
             lblCapEta.setText(SistemaControl.objPosto.tanques[0] + " / 20000");
             lblCapGas.setText(SistemaControl.objPosto.tanques[1] + " / 20000");
             lblCapAdt.setText(SistemaControl.objPosto.tanques[2] + " / 20000");
@@ -206,7 +225,6 @@ public class TanqueView extends JFrame implements ActionListener {
             btnDis.setEnabled(true);
             btnGas.setEnabled(true);
             btnEta.setEnabled(true);
-            SistemaControl.objPosto.abastecerTanque(tmpComb, tmpQnt);
             TanqueView telaTanque = new TanqueView();
             this.dispose();
         }
