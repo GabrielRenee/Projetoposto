@@ -56,7 +56,7 @@ public class ServicosView extends JFrame implements ActionListener {
         ctnServicos.add(btnCafe);
         
         lblSeta1 = new JLabel("----------->");
-        lblSeta1.setFont(fntTotal);
+        lblSeta1.setFont(fntSeta);
         lblSeta1.setForeground(new Color(0, 0, 60));
         lblSeta1.setBounds(220, 65, 200, 40);
         ctnServicos.add(lblSeta1);
@@ -76,8 +76,8 @@ public class ServicosView extends JFrame implements ActionListener {
         ctnServicos.add(btnSalgado);
         
         lblSeta2 = new JLabel("----------->");
-        lblSeta2.setFont(fntTotal);
-        lblSeta2.setForeground(new Color(1, 1, 60));
+        lblSeta2.setFont(fntSeta);
+        lblSeta2.setForeground(new Color(0, 0, 60));
         lblSeta2.setBounds(220, 110, 200, 40);
         ctnServicos.add(lblSeta2);
 
@@ -96,7 +96,7 @@ public class ServicosView extends JFrame implements ActionListener {
         ctnServicos.add(btnDucha);
         
         lblSeta3 = new JLabel("----------->");
-        lblSeta3.setFont(fntTotal);
+        lblSeta3.setFont(fntSeta);
         lblSeta3.setForeground(new Color(0, 0, 60));
         lblSeta3.setBounds(220, 155, 200, 40);
         ctnServicos.add(lblSeta3);
@@ -116,7 +116,7 @@ public class ServicosView extends JFrame implements ActionListener {
         ctnServicos.add(btnBalanceamento);
         
         lblSeta4 = new JLabel("----------->");
-        lblSeta4.setFont(fntTotal);
+        lblSeta4.setFont(fntSeta);
         lblSeta4.setForeground(new Color(0, 0, 60));
         lblSeta4.setBounds(220, 200, 200, 40);
         ctnServicos.add(lblSeta4);
@@ -136,7 +136,7 @@ public class ServicosView extends JFrame implements ActionListener {
         ctnServicos.add(btnTroca);
         
         lblSeta5 = new JLabel("----------->");
-        lblSeta5.setFont(fntTotal);
+        lblSeta5.setFont(fntSeta);
         lblSeta5.setForeground(new Color(0, 0, 60));
         lblSeta5.setBounds(220, 245, 200, 40);
         ctnServicos.add(lblSeta5);
