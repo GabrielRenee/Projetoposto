@@ -1,4 +1,3 @@
-
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
@@ -6,7 +5,7 @@ import javax.swing.*;
 public class ServicosView extends JFrame implements ActionListener {
 
     public static Container ctnServicos;
-    public static JLabel lblTitulo, lblInvalido, lblSeta, lblTotal;
+    public static JLabel lblTitulo, lblInvalido, lblTotal, lblStotal, lblSeta;
     public static JButton btnCafe, btnSalgado, btnDucha, btnBalanceamento, 
             btnTroca, btnVolta, btnConcluir,btnVCafe, btnVSalgado, btnVDucha, 
             btnVBalanceamento, btnVTroca;
@@ -14,8 +13,9 @@ public class ServicosView extends JFrame implements ActionListener {
 
     public static Font fntTexto = new Font("Tahoma", Font.PLAIN, 18);
     public static Font fntTitulos = new Font("Arial", Font.BOLD, 26);
-    public static Font fntTotal = new Font("Arial", Font.BOLD, 18);
+    public static Font fntTotal = new Font("Arial", Font.BOLD, 24);
     public static Font fntSeta = new Font("Arial", Font.BOLD, 18);
+    public static Font fntStotal = new Font("Arial", Font.BOLD, 26);
 
     public int servicos[] = new int[6]; //0 = Ducha | 1 = Óleo | 2 = Balanceamento | 3 = Café | 4 = Total
     public float Stotal;
@@ -37,16 +37,22 @@ public class ServicosView extends JFrame implements ActionListener {
         lblTotal = new JLabel("TOTAL:");
         lblTotal.setFont(fntTotal);
         lblTotal.setForeground(new Color(0, 0, 60));
-        lblTotal.setBounds(215, 285, 100, 40);
+        lblTotal.setBounds(295, 310, 100, 40);
         ctnServicos.add(lblTotal);
+        
+        lblSeta = new JLabel("-------------->");
+        lblSeta.setFont(fntTotal);
+        lblSeta.setForeground(new Color(0, 0, 60));
+        lblSeta.setBounds(205, 65, 200, 40);
+        ctnServicos.add(lblSeta);
 
-        txtTotal = new JTextField();// aqui ta a caixa em branco do total garai
-        txtTotal.setFont(fntTexto);
-        txtTotal.setForeground(new Color(60, 60, 60));
-        txtTotal.setBounds(310, 295, 110, 55);
-        txtTotal.setEditable(false);
+        lblStotal = new JLabel("");// aqui ta a caixa em branco do total garai
+        lblStotal.setFont(fntStotal);
+        lblStotal.setForeground(new Color(60, 60, 60));
+        lblStotal.setBounds(385, 305, 110, 55);
+        ctnServicos.add(lblStotal);
 
-        ctnServicos.add(txtTotal);
+        ctnServicos.add(lblStotal);
 
         btnCafe = new JButton("Café");
         btnCafe.setFont(fntTexto);
@@ -59,7 +65,7 @@ public class ServicosView extends JFrame implements ActionListener {
         btnVCafe.setFont(fntTexto);
         btnVCafe.setEnabled(false);
         btnVCafe.setForeground(new Color(60, 60, 60));
-        btnVCafe.setBounds(310, 65, 110, 40);
+        btnVCafe.setBounds(340, 65, 110, 40);
         ctnServicos.add(btnVCafe);
 
         btnSalgado = new JButton("Salgado");
@@ -73,7 +79,7 @@ public class ServicosView extends JFrame implements ActionListener {
         btnVSalgado.setFont(fntTexto);
         btnVSalgado.setEnabled(false);
         btnVSalgado.setForeground(new Color(60, 60, 60));
-        btnVSalgado.setBounds(310, 110, 110, 40);
+        btnVSalgado.setBounds(340, 110, 110, 40);
         ctnServicos.add(btnVSalgado);
 
         btnDucha = new JButton("Ducha ecólogica");
@@ -87,7 +93,7 @@ public class ServicosView extends JFrame implements ActionListener {
         btnVDucha.setFont(fntTexto);
         btnVDucha.setForeground(new Color(60, 60, 60));
         btnVDucha.setEnabled(false);
-        btnVDucha.setBounds(310, 155, 110, 40);
+        btnVDucha.setBounds(340, 155, 110, 40);
         ctnServicos.add(btnVDucha);
 
         btnBalanceamento = new JButton("Balanceamento");
@@ -101,7 +107,7 @@ public class ServicosView extends JFrame implements ActionListener {
         btnVBalanceamento.setFont(fntTexto);
         btnVBalanceamento.setForeground(new Color(60, 60, 60));
         btnVBalanceamento.setEnabled(false);
-        btnVBalanceamento.setBounds(310, 200, 110, 40);
+        btnVBalanceamento.setBounds(340, 200, 110, 40);
         ctnServicos.add(btnVBalanceamento);
 
         btnTroca = new JButton("Troca de óleo");
@@ -115,14 +121,14 @@ public class ServicosView extends JFrame implements ActionListener {
         btnVTroca.setFont(fntTexto);
         btnVTroca.setForeground(new Color(60, 60, 60));
         btnVTroca.setEnabled(false);
-        btnVTroca.setBounds(310, 245, 110, 40);
+        btnVTroca.setBounds(340, 245, 110, 40);
         ctnServicos.add(btnVTroca);
 
         btnConcluir = new JButton("Concluir");
         btnConcluir.setFont(fntTexto);
         btnConcluir.addActionListener(this);
         btnConcluir.setForeground(new Color(60, 60, 60));
-        btnConcluir.setBounds(200, 315, 97, 35);
+        btnConcluir.setBounds(195, 315, 97, 35);
         btnConcluir.setEnabled(false);
         ctnServicos.add(btnConcluir);
 
@@ -136,7 +142,7 @@ public class ServicosView extends JFrame implements ActionListener {
         this.setLocation(600, 180);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(440, 390);
+        this.setSize(470, 390);
         this.setVisible(true);
     }
 
@@ -147,7 +153,7 @@ public class ServicosView extends JFrame implements ActionListener {
             new MenuView().setVisible(true);
         } else if (evt.getSource() == btnCafe) {
             tmpTotal += 2;
-            txtTotal.setText(Integer.toString(tmpTotal));
+            lblStotal.setText("R$" + Integer.toString(tmpTotal));
             tmpServ = 0;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
@@ -155,7 +161,7 @@ public class ServicosView extends JFrame implements ActionListener {
             
         } else if (evt.getSource() == btnSalgado) {
             tmpTotal += 4;
-            txtTotal.setText(Integer.toString(tmpTotal));
+            lblStotal.setText("R$" + Integer.toString(tmpTotal));
             tmpServ = 1;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
@@ -163,7 +169,7 @@ public class ServicosView extends JFrame implements ActionListener {
             
         } else if (evt.getSource() == btnDucha) {
             tmpTotal += 8;
-            txtTotal.setText(Integer.toString(tmpTotal));
+            lblStotal.setText("R$" + Integer.toString(tmpTotal));
             tmpServ = 2;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
@@ -171,7 +177,7 @@ public class ServicosView extends JFrame implements ActionListener {
 
         } else if (evt.getSource() == btnBalanceamento) {
             tmpTotal += 35;
-            txtTotal.setText(Integer.toString(tmpTotal));
+            lblStotal.setText("R$" + Integer.toString(tmpTotal));
             tmpServ = 3;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
@@ -179,7 +185,7 @@ public class ServicosView extends JFrame implements ActionListener {
             
         } else if (evt.getSource() == btnTroca) {
             tmpTotal += 50;
-            txtTotal.setText(Integer.toString(tmpTotal));
+            lblStotal.setText("R$" + Integer.toString(tmpTotal));
             tmpServ = 4;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
