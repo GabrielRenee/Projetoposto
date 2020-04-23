@@ -7,7 +7,7 @@ public class ServicosView extends JFrame implements ActionListener {
     
     DecimalFormat rs = new DecimalFormat("0.00");
     public static Container ctnServicos;
-    public static JLabel lblTitulo, lblInvalido, lblTotal, lblStotal, lblSeta;
+    public static JLabel lblTitulo, lblInvalido, lblTotal, lblStotal, lblSeta1, lblSeta2, lblSeta3, lblSeta4, lblSeta5;
     public static JButton btnCafe, btnSalgado, btnDucha, btnBalanceamento, 
             btnTroca, btnVolta, btnConcluir,btnVCafe, btnVSalgado, btnVDucha, 
             btnVBalanceamento, btnVTroca;
@@ -19,7 +19,7 @@ public class ServicosView extends JFrame implements ActionListener {
     public static Font fntSeta = new Font("Arial", Font.BOLD, 18);
     public static Font fntStotal = new Font("Arial", Font.BOLD, 26);
 
-    public int servicos[] = new int[6]; //0 = Ducha | 1 = Óleo | 2 = Balanceamento | 3 = Café | 4 = Total
+    public int servicos[] = new int[6]; //0 = Ducha | 1 = Óleo | 2 = Balanceamento | 3 = Café | 4 = Total | 5 = Salgados
     public float Stotal;
 
     public static int tmpServ, tmpQnt, tmpParte, tmpTotal;
@@ -42,12 +42,6 @@ public class ServicosView extends JFrame implements ActionListener {
         lblTotal.setBounds(250, 310, 100, 40);
         ctnServicos.add(lblTotal);
         
-        lblSeta = new JLabel("------------->");
-        lblSeta.setFont(fntTotal);
-        lblSeta.setForeground(new Color(0, 0, 60));
-        lblSeta.setBounds(220, 65, 200, 40);
-        ctnServicos.add(lblSeta);
-
         lblStotal = new JLabel("");// aqui ta a caixa em branco do total garai
         lblStotal.setFont(fntStotal);
         lblStotal.setForeground(new Color(60, 60, 60));
@@ -60,7 +54,13 @@ public class ServicosView extends JFrame implements ActionListener {
         btnCafe.setForeground(new Color(60, 60, 60));
         btnCafe.setBounds(15, 65, 200, 40);
         ctnServicos.add(btnCafe);
-
+        
+        lblSeta1 = new JLabel("----------->");
+        lblSeta1.setFont(fntTotal);
+        lblSeta1.setForeground(new Color(0, 0, 60));
+        lblSeta1.setBounds(220, 65, 200, 40);
+        ctnServicos.add(lblSeta1);
+        
         btnVCafe = new JButton("R$ 2,00");
         btnVCafe.setFont(fntTexto);
         btnVCafe.setEnabled(false);
@@ -74,6 +74,12 @@ public class ServicosView extends JFrame implements ActionListener {
         btnSalgado.setForeground(new Color(60, 60, 60));
         btnSalgado.setBounds(15, 110, 200, 40);
         ctnServicos.add(btnSalgado);
+        
+        lblSeta2 = new JLabel("----------->");
+        lblSeta2.setFont(fntTotal);
+        lblSeta2.setForeground(new Color(1, 1, 60));
+        lblSeta2.setBounds(220, 110, 200, 40);
+        ctnServicos.add(lblSeta2);
 
         btnVSalgado = new JButton("R$ 4,00");
         btnVSalgado.setFont(fntTexto);
@@ -88,6 +94,12 @@ public class ServicosView extends JFrame implements ActionListener {
         btnDucha.setForeground(new Color(60, 60, 60));
         btnDucha.setBounds(15, 155, 200, 40);
         ctnServicos.add(btnDucha);
+        
+        lblSeta3 = new JLabel("----------->");
+        lblSeta3.setFont(fntTotal);
+        lblSeta3.setForeground(new Color(0, 0, 60));
+        lblSeta3.setBounds(220, 155, 200, 40);
+        ctnServicos.add(lblSeta3);
 
         btnVDucha = new JButton("R$ 8,00");
         btnVDucha.setFont(fntTexto);
@@ -102,6 +114,12 @@ public class ServicosView extends JFrame implements ActionListener {
         btnBalanceamento.setForeground(new Color(60, 60, 60));
         btnBalanceamento.setBounds(15, 200, 200, 40);
         ctnServicos.add(btnBalanceamento);
+        
+        lblSeta4 = new JLabel("----------->");
+        lblSeta4.setFont(fntTotal);
+        lblSeta4.setForeground(new Color(0, 0, 60));
+        lblSeta4.setBounds(220, 200, 200, 40);
+        ctnServicos.add(lblSeta4);
 
         btnVBalanceamento = new JButton("R$ 35,00");
         btnVBalanceamento.setFont(fntTexto);
@@ -116,6 +134,12 @@ public class ServicosView extends JFrame implements ActionListener {
         btnTroca.setForeground(new Color(60, 60, 60));
         btnTroca.setBounds(15, 245, 200, 40);
         ctnServicos.add(btnTroca);
+        
+        lblSeta5 = new JLabel("----------->");
+        lblSeta5.setFont(fntTotal);
+        lblSeta5.setForeground(new Color(0, 0, 60));
+        lblSeta5.setBounds(220, 245, 200, 40);
+        ctnServicos.add(lblSeta5);
 
         btnVTroca = new JButton("R$ 50,00");
         btnVTroca.setFont(fntTexto);
