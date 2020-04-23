@@ -16,7 +16,7 @@ public class ServicosView extends JFrame implements ActionListener {
     public static Font fntTexto = new Font("Tahoma", Font.PLAIN, 18);
     public static Font fntTitulos = new Font("Arial", Font.BOLD, 26);
     public static Font fntTotal = new Font("Arial", Font.BOLD, 24);
-    public static Font fntSeta = new Font("Arial", Font.BOLD, 18);
+    public static Font fntSeta = new Font("Arial", Font.BOLD, 25);
     public static Font fntStotal = new Font("Arial", Font.BOLD, 26);
 
     public int servicos[] = new int[6]; //0 = Ducha | 1 = Óleo | 2 = Balanceamento | 3 = Café | 4 = Total | 5 = Salgados
@@ -55,7 +55,7 @@ public class ServicosView extends JFrame implements ActionListener {
         btnCafe.setBounds(15, 65, 200, 40);
         ctnServicos.add(btnCafe);
         
-        lblSeta1 = new JLabel("----------->");
+        lblSeta1 = new JLabel("------------>");
         lblSeta1.setFont(fntSeta);
         lblSeta1.setForeground(new Color(0, 0, 60));
         lblSeta1.setBounds(220, 65, 200, 40);
@@ -75,7 +75,7 @@ public class ServicosView extends JFrame implements ActionListener {
         btnSalgado.setBounds(15, 110, 200, 40);
         ctnServicos.add(btnSalgado);
         
-        lblSeta2 = new JLabel("----------->");
+        lblSeta2 = new JLabel("------------>");
         lblSeta2.setFont(fntSeta);
         lblSeta2.setForeground(new Color(0, 0, 60));
         lblSeta2.setBounds(220, 110, 200, 40);
@@ -95,7 +95,7 @@ public class ServicosView extends JFrame implements ActionListener {
         btnDucha.setBounds(15, 155, 200, 40);
         ctnServicos.add(btnDucha);
         
-        lblSeta3 = new JLabel("----------->");
+        lblSeta3 = new JLabel("------------>");
         lblSeta3.setFont(fntSeta);
         lblSeta3.setForeground(new Color(0, 0, 60));
         lblSeta3.setBounds(220, 155, 200, 40);
@@ -115,7 +115,7 @@ public class ServicosView extends JFrame implements ActionListener {
         btnBalanceamento.setBounds(15, 200, 200, 40);
         ctnServicos.add(btnBalanceamento);
         
-        lblSeta4 = new JLabel("----------->");
+        lblSeta4 = new JLabel("------------>");
         lblSeta4.setFont(fntSeta);
         lblSeta4.setForeground(new Color(0, 0, 60));
         lblSeta4.setBounds(220, 200, 200, 40);
@@ -135,7 +135,7 @@ public class ServicosView extends JFrame implements ActionListener {
         btnTroca.setBounds(15, 245, 200, 40);
         ctnServicos.add(btnTroca);
         
-        lblSeta5 = new JLabel("----------->");
+        lblSeta5 = new JLabel("------------>");
         lblSeta5.setFont(fntSeta);
         lblSeta5.setForeground(new Color(0, 0, 60));
         lblSeta5.setBounds(220, 245, 200, 40);
