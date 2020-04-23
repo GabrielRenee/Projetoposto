@@ -1,9 +1,11 @@
 import java.awt.event.*;
 import java.awt.*;
+import java.text.DecimalFormat;
 import javax.swing.*;
 
 public class ServicosView extends JFrame implements ActionListener {
-
+    
+    DecimalFormat rs = new DecimalFormat("0.00");
     public static Container ctnServicos;
     public static JLabel lblTitulo, lblInvalido, lblTotal, lblStotal, lblSeta;
     public static JButton btnCafe, btnSalgado, btnDucha, btnBalanceamento, 
@@ -31,37 +33,35 @@ public class ServicosView extends JFrame implements ActionListener {
         lblTitulo = new JLabel("Serviços do Posto");
         lblTitulo.setFont(fntTitulos);
         lblTitulo.setForeground(new Color(0, 0, 60));
-        lblTitulo.setBounds(100, 10, 250, 30);
+        lblTitulo.setBounds(115, 10, 250, 30);
         ctnServicos.add(lblTitulo);
 
         lblTotal = new JLabel("TOTAL:");
         lblTotal.setFont(fntTotal);
         lblTotal.setForeground(new Color(0, 0, 60));
-        lblTotal.setBounds(295, 310, 100, 40);
+        lblTotal.setBounds(250, 310, 100, 40);
         ctnServicos.add(lblTotal);
         
-        lblSeta = new JLabel("-------------->");
+        lblSeta = new JLabel("------------->");
         lblSeta.setFont(fntTotal);
         lblSeta.setForeground(new Color(0, 0, 60));
-        lblSeta.setBounds(205, 65, 200, 40);
+        lblSeta.setBounds(220, 65, 200, 40);
         ctnServicos.add(lblSeta);
 
         lblStotal = new JLabel("");// aqui ta a caixa em branco do total garai
         lblStotal.setFont(fntStotal);
         lblStotal.setForeground(new Color(60, 60, 60));
-        lblStotal.setBounds(385, 305, 110, 55);
-        ctnServicos.add(lblStotal);
-
+        lblStotal.setBounds(340, 310, 150, 40);
         ctnServicos.add(lblStotal);
 
         btnCafe = new JButton("Café");
         btnCafe.setFont(fntTexto);
         btnCafe.addActionListener(this);
         btnCafe.setForeground(new Color(60, 60, 60));
-        btnCafe.setBounds(15, 65, 180, 40);
+        btnCafe.setBounds(15, 65, 200, 40);
         ctnServicos.add(btnCafe);
 
-        btnVCafe = new JButton("R$2,00");
+        btnVCafe = new JButton("R$ 2,00");
         btnVCafe.setFont(fntTexto);
         btnVCafe.setEnabled(false);
         btnVCafe.setForeground(new Color(60, 60, 60));
@@ -72,10 +72,10 @@ public class ServicosView extends JFrame implements ActionListener {
         btnSalgado.setFont(fntTexto);
         btnSalgado.addActionListener(this);
         btnSalgado.setForeground(new Color(60, 60, 60));
-        btnSalgado.setBounds(15, 110, 180, 40);
+        btnSalgado.setBounds(15, 110, 200, 40);
         ctnServicos.add(btnSalgado);
 
-        btnVSalgado = new JButton("R$4,00");
+        btnVSalgado = new JButton("R$ 4,00");
         btnVSalgado.setFont(fntTexto);
         btnVSalgado.setEnabled(false);
         btnVSalgado.setForeground(new Color(60, 60, 60));
@@ -86,10 +86,10 @@ public class ServicosView extends JFrame implements ActionListener {
         btnDucha.setFont(fntTexto);
         btnDucha.addActionListener(this);
         btnDucha.setForeground(new Color(60, 60, 60));
-        btnDucha.setBounds(15, 155, 180, 40);
+        btnDucha.setBounds(15, 155, 200, 40);
         ctnServicos.add(btnDucha);
 
-        btnVDucha = new JButton("R$8,00");
+        btnVDucha = new JButton("R$ 8,00");
         btnVDucha.setFont(fntTexto);
         btnVDucha.setForeground(new Color(60, 60, 60));
         btnVDucha.setEnabled(false);
@@ -100,10 +100,10 @@ public class ServicosView extends JFrame implements ActionListener {
         btnBalanceamento.addActionListener(this);
         btnBalanceamento.setFont(fntTexto);
         btnBalanceamento.setForeground(new Color(60, 60, 60));
-        btnBalanceamento.setBounds(15, 200, 180, 40);
+        btnBalanceamento.setBounds(15, 200, 200, 40);
         ctnServicos.add(btnBalanceamento);
 
-        btnVBalanceamento = new JButton("R$35,00");
+        btnVBalanceamento = new JButton("R$ 35,00");
         btnVBalanceamento.setFont(fntTexto);
         btnVBalanceamento.setForeground(new Color(60, 60, 60));
         btnVBalanceamento.setEnabled(false);
@@ -114,7 +114,7 @@ public class ServicosView extends JFrame implements ActionListener {
         btnTroca.setFont(fntTexto);
         btnTroca.addActionListener(this);
         btnTroca.setForeground(new Color(60, 60, 60));
-        btnTroca.setBounds(15, 245, 180, 40);
+        btnTroca.setBounds(15, 245, 200, 40);
         ctnServicos.add(btnTroca);
 
         btnVTroca = new JButton("R$ 50,00");
@@ -128,7 +128,7 @@ public class ServicosView extends JFrame implements ActionListener {
         btnConcluir.setFont(fntTexto);
         btnConcluir.addActionListener(this);
         btnConcluir.setForeground(new Color(60, 60, 60));
-        btnConcluir.setBounds(195, 315, 97, 35);
+        btnConcluir.setBounds(117, 315, 97, 35);
         btnConcluir.setEnabled(false);
         ctnServicos.add(btnConcluir);
 
@@ -153,7 +153,7 @@ public class ServicosView extends JFrame implements ActionListener {
             new MenuView().setVisible(true);
         } else if (evt.getSource() == btnCafe) {
             tmpTotal += 2;
-            lblStotal.setText("R$" + Integer.toString(tmpTotal));
+            lblStotal.setText("R$ " + rs.format(tmpTotal));
             tmpServ = 0;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
@@ -161,7 +161,7 @@ public class ServicosView extends JFrame implements ActionListener {
             
         } else if (evt.getSource() == btnSalgado) {
             tmpTotal += 4;
-            lblStotal.setText("R$" + Integer.toString(tmpTotal));
+            lblStotal.setText("R$ " + rs.format(tmpTotal));
             tmpServ = 1;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
@@ -169,7 +169,7 @@ public class ServicosView extends JFrame implements ActionListener {
             
         } else if (evt.getSource() == btnDucha) {
             tmpTotal += 8;
-            lblStotal.setText("R$" + Integer.toString(tmpTotal));
+            lblStotal.setText("R$ " + rs.format(tmpTotal));
             tmpServ = 2;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
@@ -177,7 +177,7 @@ public class ServicosView extends JFrame implements ActionListener {
 
         } else if (evt.getSource() == btnBalanceamento) {
             tmpTotal += 35;
-            lblStotal.setText("R$" + Integer.toString(tmpTotal));
+            lblStotal.setText("R$ " + rs.format(tmpTotal));
             tmpServ = 3;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
@@ -185,7 +185,7 @@ public class ServicosView extends JFrame implements ActionListener {
             
         } else if (evt.getSource() == btnTroca) {
             tmpTotal += 50;
-            lblStotal.setText("R$" + Integer.toString(tmpTotal));
+            lblStotal.setText("R$ " + rs.format(tmpTotal));
             tmpServ = 4;
             btnConcluir.setEnabled(true);
             SistemaControl.objPosto.venderServiços(tmpServ);
