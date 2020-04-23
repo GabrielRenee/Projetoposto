@@ -64,6 +64,7 @@ public class RelatorioView extends JFrame implements ActionListener {
         ctnRelatorio.add(btnVolta);
 
         txtTanques = new JTextPane();
+        txtTanques.setOpaque(false);
         txtTanques.setEditable(false);
         txtTanques.setForeground(new Color(0, 0, 0));
         txtTanques.setBounds(37, 120, 510, 150);
@@ -78,6 +79,7 @@ public class RelatorioView extends JFrame implements ActionListener {
         );
 
         txtVendas = new JTextPane();
+        txtVendas.setOpaque(false);
         txtVendas.setEditable(false);
         txtVendas.setForeground(new Color(0, 0, 0));
         txtVendas.setBounds(37, 120, 510, 390);
@@ -100,6 +102,7 @@ public class RelatorioView extends JFrame implements ActionListener {
                 + "Total --------------------------------------------- " + SistemaControl.objPosto.servicos[5] + " | R$ " + rs.format(SistemaControl.objPosto.lucroServ) + "\n");
 
         txtLucros = new JTextPane();
+        txtLucros.setOpaque(false);
         txtLucros.setEditable(false);
         txtLucros.setForeground(new Color(0, 0, 0));
         txtLucros.setBounds(37, 120, 510, 340);
@@ -107,18 +110,19 @@ public class RelatorioView extends JFrame implements ActionListener {
         ctnRelatorio.add(txtLucros);
         txtLucros.setVisible(false);
         txtLucros.setText("Combustíveis:\n\n"
-                + "Lucro bruto ------------------------------------------- R$ " + rs.format(SistemaControl.objPosto.lucros) + "\n"
+                + "Lucro bruto ------------------------------------ R$ " + rs.format(SistemaControl.objPosto.lucros) + "\n"
                 + "Lucro líquido  --------------------------------- R$ " + rs.format((SistemaControl.objPosto.lucros - SistemaControl.objPosto.despesas)) + "\n"
                 + " ------------------------------------------------------------------------\n"
                 + "Serviços:\n\n"
-                + "Lucro bruto ---------------------------------------------- R$ " + rs.format(SistemaControl.objPosto.lucroServ) + "\n"
+                + "Lucro bruto ------------------------------------ R$ " + rs.format(SistemaControl.objPosto.lucroServ) + "\n"
                 + //Como não há despesas com serviços, o lucro é bruto
                 " ------------------------------------------------------------------------\n"
                 + "Total:\n\n"
-                + "Lucros Brutos ------------------------------------------- R$ " + rs.format((SistemaControl.objPosto.lucros + SistemaControl.objPosto.lucroServ)) + "\n"
+                + "Lucros Brutos --------------------------------- R$ " + rs.format((SistemaControl.objPosto.lucros + SistemaControl.objPosto.lucroServ)) + "\n"
                 + "Lucros Líquidos  ------------------------------ R$ " + rs.format(((SistemaControl.objPosto.lucros - SistemaControl.objPosto.despesas) + SistemaControl.objPosto.lucroServ)) + "\n");
 
         txtDespesas = new JTextPane();
+        txtDespesas.setOpaque(false);
         txtDespesas.setEditable(false);
         txtDespesas.setForeground(new Color(0, 0, 0));
         txtDespesas.setBounds(37, 120, 547, 160);
@@ -126,7 +130,7 @@ public class RelatorioView extends JFrame implements ActionListener {
         ctnRelatorio.add(txtDespesas);
         txtDespesas.setVisible(false);
         txtDespesas.setText("Despesas:\n\n"
-                + "1 - Etanol  -------------------------- " + df.format(SistemaControl.objPosto.lCmp[0]) + " litros | R$" + rs.format(SistemaControl.objPosto.lCmp[0] * SistemaControl.objPosto.valorCmp[0]) + "\n"
+                + "1 - Etanol  ---------------------------- " + df.format(SistemaControl.objPosto.lCmp[0]) + " litros | R$" + rs.format(SistemaControl.objPosto.lCmp[0] * SistemaControl.objPosto.valorCmp[0]) + "\n"
                 + "2 - Gasolina Comum  ---------------- " + df.format(SistemaControl.objPosto.lCmp[1]) + " litros | R$" + rs.format(SistemaControl.objPosto.lCmp[1] * SistemaControl.objPosto.valorCmp[1]) + "\n"
                 + "3 - Gasolina Aditivada  -------------- " + df.format(SistemaControl.objPosto.lCmp[2]) + " litros | R$" + rs.format(SistemaControl.objPosto.lCmp[2] * SistemaControl.objPosto.valorCmp[2]) + "\n"
                 + "4 - Diesel  ---------------------------- " + df.format(SistemaControl.objPosto.lCmp[3]) + " litros | R$" + rs.format(SistemaControl.objPosto.lCmp[3] * SistemaControl.objPosto.valorCmp[3]) + "\n"
