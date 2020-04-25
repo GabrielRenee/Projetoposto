@@ -1,3 +1,4 @@
+
 import java.awt.event.*;
 import java.awt.*;
 import java.text.DecimalFormat;
@@ -175,6 +176,7 @@ public class ServicosView extends JFrame implements ActionListener {
 
             this.dispose();
             new MenuView().setVisible(true);
+            tmpTotal = 0;
         } else if (evt.getSource() == btnCafe) {
             tmpTotal += 2;
             lblStotal.setText("R$ " + rs.format(tmpTotal));
@@ -219,7 +221,7 @@ public class ServicosView extends JFrame implements ActionListener {
             
             ServicosView telaServicos = new ServicosView();
             this.dispose();
-            
+            tmpTotal = 0;
         }
     }
 }
