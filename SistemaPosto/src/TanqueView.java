@@ -67,6 +67,9 @@ public class TanqueView extends JFrame implements ActionListener {
         lblCapEta.setForeground(new Color(60, 60, 60));
         lblCapEta.setBounds(420, 115, 200, 20);
         ctnTanque.add(lblCapEta);
+        if(SistemaControl.objPosto.tanques[0] >= 20000){
+            btnEta.setEnabled(false);
+        }
 
         btnGas = new JButton("Gasolina Comum");
         btnGas.setFont(fntTexto);
@@ -80,6 +83,9 @@ public class TanqueView extends JFrame implements ActionListener {
             btnGas.setBackground(new Color(247, 239, 198));
         } else if (SistemaControl.objPosto.tanques[1] < 5000) {
             btnGas.setBackground(new Color(252, 179, 179));
+        }
+        if(SistemaControl.objPosto.tanques[1] >= 20000){
+            btnGas.setEnabled(false);
         }
         lblCapGas = new JLabel("");
         lblCapGas.setText(SistemaControl.objPosto.tanques[1] + " / 20000");
@@ -102,6 +108,9 @@ public class TanqueView extends JFrame implements ActionListener {
         } else if (SistemaControl.objPosto.tanques[2] < 5000) {
             btnAdt.setBackground(new Color(252, 179, 179));
         }
+        if(SistemaControl.objPosto.tanques[2] >= 20000){
+            btnAdt.setEnabled(false);
+        }
         
         lblCapAdt = new JLabel("");
         lblCapAdt.setText(SistemaControl.objPosto.tanques[2] + " / 20000");
@@ -122,6 +131,9 @@ public class TanqueView extends JFrame implements ActionListener {
             btnDis.setBackground(new Color(247, 239, 198));
         } else if (SistemaControl.objPosto.tanques[3] < 5000) {
             btnDis.setBackground(new Color(252, 179, 179));
+        }
+        if(SistemaControl.objPosto.tanques[3] >= 20000){
+            btnDis.setEnabled(false);
         }
         lblCapDis = new JLabel("");
         lblCapDis.setText(SistemaControl.objPosto.tanques[3] + " / 20000");
