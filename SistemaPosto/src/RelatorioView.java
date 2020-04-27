@@ -1,4 +1,8 @@
-
+/**
+ *
+ * @author Gabriel Renée da Silva (28279502)
+ * @author2 Victor Christian oliveira (28280014)
+ */
 import java.awt.event.*;
 import java.awt.*;
 import java.text.DecimalFormat;
@@ -82,7 +86,7 @@ public class RelatorioView extends JFrame implements ActionListener {
         txtVendas.setOpaque(false);
         txtVendas.setEditable(false);
         txtVendas.setForeground(new Color(0, 0, 0));
-        txtVendas.setBounds(37, 120, 510, 390);
+        txtVendas.setBounds(37, 120, 550, 390);
         txtVendas.setFont(fntTexto);
         ctnRelatorio.add(txtVendas);
         txtVendas.setVisible(false);

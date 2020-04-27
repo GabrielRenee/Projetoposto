@@ -1,4 +1,8 @@
-
+/**
+ *
+ * @author Gabriel Renée da Silva (28279502)
+ * @author2 Victor Christian oliveira (28280014)
+ */
 public class PostoVO {
 
     public int servicos[] = new int[6]; //0 = Ducha | 1 = Óleo | 2 = Balanceamento | 3 = Café | 4 = Salgado | 5 = Total

@@ -1,3 +1,8 @@
+/**
+ *
+ * @author Gabriel Renée da Silva (28279502)
+ * @author2 Victor Christian oliveira (28280014)
+ */
 import java.awt.event.*; 
 import java.awt.*; 
 import javax.swing.*; 
