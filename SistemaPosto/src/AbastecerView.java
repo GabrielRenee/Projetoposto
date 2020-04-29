@@ -253,7 +253,7 @@ public class AbastecerView extends JFrame implements ActionListener {
                             JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!\n" + df.format(tmpLitros) + " de gasolina", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
                             break;
                         case 2:
-                            JOptionPane.showMessageDialog(null, "A bomba de Etanol está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "A bomba de Gasolina está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
                             break;
                         case 3:
                             JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -273,7 +273,7 @@ public class AbastecerView extends JFrame implements ActionListener {
                             JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!\n" + df.format(tmpLitros) + " de aditivada", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
                             break;
                         case 2:
-                            JOptionPane.showMessageDialog(null, "A bomba de Etanol está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "A bomba de Aditivada está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
                             break;
                         case 3:
                             JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -293,7 +293,7 @@ public class AbastecerView extends JFrame implements ActionListener {
                             JOptionPane.showMessageDialog(null, "Tanque abastecido com sucesso !!!\n" + df.format(tmpLitros) + " de diesel", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
                             break;
                         case 2:
-                            JOptionPane.showMessageDialog(null, "A bomba de Etanol está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "A bomba de Diesel está vazia !!!", "Erro", JOptionPane.WARNING_MESSAGE);
                             break;
                         case 3:
                             JOptionPane.showMessageDialog(null, "Digite um número válido !!!", "Erro", JOptionPane.ERROR_MESSAGE);
