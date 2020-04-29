@@ -5,9 +5,13 @@
  */
 import java.awt.event.*;
 import java.awt.*;
+import java.text.DecimalFormat;
 import javax.swing.*;
 
 public class TanqueView extends JFrame implements ActionListener {
+    
+    DecimalFormat df = new DecimalFormat("0.000"); //Litros
+    DecimalFormat rs = new DecimalFormat("0.00"); //Preços
 
     public static Container ctnTanque;
     public static JLabel lblTitulo, lblInvalido, lblCapEta, lblCapGas, lblCapAdt, lblCapDis;
@@ -66,7 +70,7 @@ public class TanqueView extends JFrame implements ActionListener {
             btnEta.setBackground(new Color(252, 179, 179));
         }
         lblCapEta = new JLabel("");
-        lblCapEta.setText(SistemaControl.objPosto.tanques[0] + " / 20000");
+        lblCapEta.setText(df.format(SistemaControl.objPosto.tanques[0]) + " / 20000");
         lblCapEta.setFont(fntDados);
         lblCapEta.setForeground(new Color(60, 60, 60));
         lblCapEta.setBounds(420, 115, 200, 20);
@@ -92,7 +96,7 @@ public class TanqueView extends JFrame implements ActionListener {
             btnGas.setEnabled(false);
         }
         lblCapGas = new JLabel("");
-        lblCapGas.setText(SistemaControl.objPosto.tanques[1] + " / 20000");
+        lblCapGas.setText(df.format(SistemaControl.objPosto.tanques[1]) + " / 20000");
         lblCapGas.setFont(fntDados);
         lblCapGas.setForeground(new Color(60, 60, 60));
         lblCapGas.setBounds(420, 165, 200, 20);
@@ -117,7 +121,7 @@ public class TanqueView extends JFrame implements ActionListener {
         }
         
         lblCapAdt = new JLabel("");
-        lblCapAdt.setText(SistemaControl.objPosto.tanques[2] + " / 20000");
+        lblCapAdt.setText(df.format(SistemaControl.objPosto.tanques[2]) + " / 20000");
         lblCapAdt.setFont(fntDados);
         lblCapAdt.setForeground(new Color(60, 60, 60));
         lblCapAdt.setBounds(420, 215, 200, 20);
@@ -140,7 +144,7 @@ public class TanqueView extends JFrame implements ActionListener {
             btnDis.setEnabled(false);
         }
         lblCapDis = new JLabel("");
-        lblCapDis.setText(SistemaControl.objPosto.tanques[3] + " / 20000");
+        lblCapDis.setText(df.format(SistemaControl.objPosto.tanques[3]) + " / 20000");
         lblCapDis.setFont(fntDados);
         lblCapDis.setForeground(new Color(60, 60, 60));
         lblCapDis.setBounds(420, 265, 200, 20);
